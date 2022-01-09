@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 graphene-django = ">=3.*"
 django = "*"
+django-filter = "*"
 
 [dev-packages]
 
