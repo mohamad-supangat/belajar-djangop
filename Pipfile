@@ -9,6 +9,8 @@ django = "*"
 django-filter = "*"
 django-seed = "*"
 psycopg2 = "*"
+django-graphql-jwt = "*"
+django-graphql-auth = "*"
 
 [dev-packages]
 

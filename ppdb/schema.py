@@ -2,6 +2,7 @@ import graphene
 from graphene_django import DjangoObjectType
 from hantamkoding import datatable
 from polls.models import Choice, Question
+from graphql_auth.schema import UserQuery, MeQuery
 
 
 class QuestionType(DjangoObjectType):
@@ -19,7 +20,7 @@ class ChoiceType(DjangoObjectType):
         fields = ("id", "question", "choice_text", "votes")
 
 
-class Query(graphene.ObjectType):
+class Query(UserQuery, MeQuery, graphene.ObjectType):
     all_question = graphene.List(QuestionType)
     question_by_id = graphene.Field(
         QuestionType, id=graphene.String(required=True))
