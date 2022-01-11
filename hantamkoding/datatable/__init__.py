@@ -3,10 +3,10 @@
 
 from .objects_type import PageInfoExtra
 from .connection import PaginationConnection
-from .connection_field import DjangoPaginationConnectionField
+from .connection_field import DatatableField
 
 __all__ = [
     "PageInfoExtra",
     "PaginationConnection",
-    "DjangoPaginationConnectionField"
+    "DatatableField"
 ]

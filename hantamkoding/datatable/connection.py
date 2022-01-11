@@ -2,7 +2,7 @@ import re
 
 from collections import OrderedDict
 from graphene import Connection, List, NonNull, Field
-from graphene_django_pagination import PageInfoExtra
+from . import PageInfoExtra
 from graphene.relay.connection import ConnectionOptions
 
 

@@ -10,7 +10,8 @@ from django.db.models.query import QuerySet
 from . import PaginationConnection, PageInfoExtra
 from django import __version__ as django_version
 
-class DjangoPaginationConnectionField(DjangoFilterConnectionField):
+
+class DatatableField(DjangoFilterConnectionField):
     def __init__(
         self,
         type,
@@ -32,7 +33,7 @@ class DjangoPaginationConnectionField(DjangoFilterConnectionField):
         kwargs.setdefault("offset", Int(description="Query offset"))
         kwargs.setdefault("ordering", String(description="Query order"))
 
-        super(DjangoPaginationConnectionField, self).__init__(
+        super(DatatableField, self).__init__(
             type,
             *args,
             **kwargs
@@ -59,18 +60,18 @@ class DjangoPaginationConnectionField(DjangoFilterConnectionField):
         # versions 2.x and 3.x of Django this implementation
         # maintains compatibility between versions
         if django_version >= '3.0.0':
-            arguments=args[0]
-            iterable=args[1]
-            max_limit=kwargs.get('max_limit')
+            arguments = args[0]
+            iterable = args[1]
+            max_limit = kwargs.get('max_limit')
 
             iterable = maybe_queryset(iterable)
 
             _len = len(iterable)
 
         else:
-            default_manager=args[0]
-            arguments=args[1]
-            iterable=args[2]
+            default_manager = args[0]
+            arguments = args[1]
+            iterable = args[2]
 
             if iterable is None:
                 iterable = default_manager

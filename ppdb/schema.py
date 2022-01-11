@@ -1,6 +1,6 @@
 import graphene
 from graphene_django import DjangoObjectType
-from hantamkoding import paginator
+from hantamkoding import datatable
 from polls.models import Choice, Question
 
 
@@ -24,7 +24,7 @@ class Query(graphene.ObjectType):
     question_by_id = graphene.Field(
         QuestionType, id=graphene.String(required=True))
 
-    questions = customers = paginator.DjangoPaginationConnectionField(
+    questions = customers = datatable.DatatableField(
         QuestionType)
 
     def resolve_all_question(root, info):

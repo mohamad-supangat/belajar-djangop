@@ -7,6 +7,8 @@ name = "pypi"
 graphene-django = ">=3.*"
 django = "*"
 django-filter = "*"
+django-seed = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
